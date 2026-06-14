@@ -1,0 +1,9 @@
+name = "benion-moviehub"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist/client"
+
+[build]
+command = "bun run build"
+
+# Static assets from dist/client will be served via Cloudflare CDN
+# All other routes go through the Worker function at functions/[[path]].ts
