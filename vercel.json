@@ -3,11 +3,6 @@
   "outputDirectory": "dist/client",
   "framework": null,
   "installCommand": "bun install",
-  "functions": {
-    "api/**/*.ts": {
-      "runtime": "edge"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
