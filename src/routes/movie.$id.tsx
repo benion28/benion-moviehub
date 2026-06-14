@@ -82,12 +82,12 @@ function MovieDetailsPage() {
           <ArrowLeft className="size-4" /> Back
         </button>
 
-        <div className="grid md:grid-cols-[minmax(0,360px)_1fr] gap-8">
-          <div className="aspect-[2/3] rounded-xl overflow-hidden bg-muted">
+        <div className="grid md:grid-cols-[minmax(0,360px)_1fr] gap-6 md:gap-8">
+          <div className="aspect-[2/3] w-full max-w-[280px] mx-auto md:max-w-none md:mx-0 rounded-xl overflow-hidden bg-muted">
             {poster && <img src={poster} alt={movie.title} className="size-full object-cover" />}
           </div>
 
-          <div>
+          <div className="min-w-0">
             <h1 className="text-3xl md:text-4xl font-bold">{movie.title}</h1>
             <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
               {year && <span>{year}</span>}
@@ -105,7 +105,7 @@ function MovieDetailsPage() {
               )}
             </div>
 
-            <div className="flex items-center gap-4 mt-5">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-5">
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border">
                 <Star className="size-4 fill-rating text-rating" />
                 <span className="font-bold">{movie.vote_average.toFixed(1)}</span>
@@ -113,7 +113,7 @@ function MovieDetailsPage() {
               <span className="text-sm text-muted-foreground">
                 ({movie.vote_count.toLocaleString()} votes)
               </span>
-              <Button onClick={toggleFav} className="ml-auto" size="lg">
+              <Button onClick={toggleFav} size="lg" className="w-full sm:w-auto sm:ml-auto">
                 <Heart className={cn("size-4", fav && "fill-current")} />
                 {fav ? "Remove from Favorites" : "Add to Favorites"}
               </Button>
@@ -137,7 +137,7 @@ function MovieDetailsPage() {
               </div>
             </section>
 
-            <dl className="mt-6 grid grid-cols-[140px_1fr] gap-y-3 text-sm">
+            <dl className="mt-6 grid grid-cols-[110px_minmax(0,1fr)] sm:grid-cols-[140px_1fr] gap-y-3 text-sm break-words">
               <dt className="text-muted-foreground">Release Date</dt>
               <dd>{movie.release_date || "—"}</dd>
               {director && (
