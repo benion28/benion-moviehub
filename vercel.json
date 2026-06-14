@@ -1,6 +1,17 @@
 {
   "buildCommand": "bun run build",
-  "outputDirectory": ".output/public",
+  "outputDirectory": "dist/client",
   "framework": null,
-  "installCommand": "bun install"
+  "installCommand": "bun install",
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "edge"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/server"
+    }
+  ]
 }
